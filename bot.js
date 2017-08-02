@@ -5,10 +5,10 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexGuy = /^guy{1,}/i;
-	  botRegexGal = /^\/gal$/;
-	  botRegexNeutral = /^\/neutral$/;
-	  botRegexActivity = /^\/activity$/;
+      botRegexGuy = /^guy/i;
+	  botRegexGal = /^gal/i;
+	  botRegexNeutral = /^neutral/i;
+	  botRegexActivity = /^activity/i;
 
   if(request.text && botRegexGuy.test(request.text)) {
     this.res.writeHead(200);
