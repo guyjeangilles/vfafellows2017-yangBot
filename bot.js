@@ -8,7 +8,7 @@ function respond() {
       botRegexIterate = /^iterat/i;
 	  botRegexDisrupt = /^disrupt/i;
 	  botRegexYin = /^yin/i;
-	  botRegexActivity = /^activity/i;
+	  botRegexAutomate = /^automat/i;
 
   if(request.text && botRegexIterate.test(request.text)) {
     this.res.writeHead(200);
@@ -27,9 +27,9 @@ function respond() {
     this.res.end();
   } 
   
-  if(request.text && botRegexActivity.test(request.text)) {
+  if(request.text && botRegexAutomate.test(request.text)) {
 	this.res.writeHead(200);
-    postMessageActivity();
+    postMessageAutomate();
     this.res.end();
   } else {
     console.log("don't care");
@@ -143,16 +143,10 @@ function postMessageYin() {
   botReq.end(JSON.stringify(body));
 }
 
-function postMessageActivity() {
-  var activity = ['coffee', 'brunch', 'lunch', 'dinner', 'drag show', 'museum', 'froyo', 'roller skating', 'actually watch a movie', 'ice cream', 'cook a meal', 'go on a walk', 'arcade', 'RISD Nature Lab', 'zoo', 'Muse Paintbar', 'bake something'];
-  
+function postMessageAutomate() {
   var botResponse, options, body, botReq;
   
-  var index_act = Math.floor(Math.random()*(activity.length));
-  var date = activity[index_act];
-  
-  //botResponse = cool() + ' @Guyrandy Jean-Gilles';
-  botResponse ='^ ' + date + '?';
+  botResponse =' AUTOMATION IS 2 SPOOKY';
 
   options = {
     hostname: 'api.groupme.com',
