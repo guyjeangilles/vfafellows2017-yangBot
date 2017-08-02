@@ -5,14 +5,14 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexGuy = /^guy/i;
+      botRegexIterate = /^iterat/i;
 	  botRegexGal = /^gal/i;
 	  botRegexNeutral = /^neutral/i;
 	  botRegexActivity = /^activity/i;
 
-  if(request.text && botRegexGuy.test(request.text)) {
+  if(request.text && botRegexIterate.test(request.text)) {
     this.res.writeHead(200);
-    postMessageGuy();
+    postMessageIterate();
     this.res.end();
   }
   if (request.text && botRegexGal.test(request.text)) {
@@ -40,7 +40,7 @@ function respond() {
 
 var activity = ['coffee', 'brunch', 'lunch', 'dinner', 'drag show', 'museum', 'froyo', 'roller skating', 'actually watch a movie', 'ice cream', 'cook a meal', 'go on a walk', 'arcade', 'RISD Nature Lab', 'zoo', 'Muse Paintbar', 'bake something'];
 
-function postMessageGuy() {
+function postMessageIterate() {
   var guys = [ 'Aaron McClendon', 'Adam Rukin', 'Aleck Pinto', 'Alex Gaggino', 'Andreas Betancourt', 'Arjun Nukal', 'B O\'B', 'Beans', 'Brandon Davenport', 'David Yocum', 'Dayo Akinjisola', 'Drew Carlson', 'Eli Panken', 'Eric Jasinski', 'Evan Matuszak', 'Franklin Li', 'Gene Wiliams', 'Guyrandy Jean-Gilles', 'Ismail Oukhouya', 'Jaafar Mothafer', 'James Dolgin', 'James Levine', 'Jeff Biestek', 'Joe Sullivan', 'Jon Weiss', 'Josh Harrison', 'Justin Ramos',  'Keiran McVeigh', 'Kevin Carter', 'Matt Bee', 'Matt Crescinmanno', 'Matthew Maquiling', 'Micah Jaffe', 'Micah Leinbach', 'Mihir Pershad', 'Narin Luangrath', 'Nick Zajciw', 'Noah Zweben', 'Ojas Chinchwadkar', 'Petey DeJoy', 'Quenton Stevenson', 'Rahul Narain', 'Ryan Cleary', 'Sam Koening', 'Sam Summer', 'Sarim Ahmed', 'Saseen Najjar', 'Sean Pitterson Jr', 'Sean McCroskey', 'Spencer Keith', 'Steven Soto', 'Thomas Krumins', 'Will Humphrey', 'Vinay Nagaraj', 'Zac Levin'];
   var activity = ['coffee', 'brunch', 'lunch', 'dinner', 'drag show', 'museum', 'froyo', 'roller skating', 'actually watch a movie', 'ice cream', 'cook a meal', 'go on a walk', 'arcade', 'RISD Nature Lab', 'zoo', 'Muse Paintbar', 'bake something'];
   
