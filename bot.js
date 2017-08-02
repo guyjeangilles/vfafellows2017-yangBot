@@ -6,7 +6,7 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegexIterate = /^iterat/i;
-	  botRegexGal = /^gal/i;
+	  botRegexDisrupt = /^disrupt/i;
 	  botRegexNeutral = /^neutral/i;
 	  botRegexActivity = /^activity/i;
 
@@ -15,9 +15,9 @@ function respond() {
     postMessageIterate();
     this.res.end();
   }
-  if (request.text && botRegexGal.test(request.text)) {
+  if (request.text && botRegexDisrupt.test(request.text)) {
 	this.res.writeHead(200);
-    postMessageGal();
+    postMessageDisrupt();
     this.res.end();
   }
   
@@ -73,20 +73,10 @@ function postMessageIterate() {
   botReq.end(JSON.stringify(body));
 }
 
-function postMessageGal() {
-  var gals = ['Abbie Spector', 'Abigail Schneider', 'Alexandra Bacchus', 'Amanda Halacy', 'Amy Scheel', 'Becca Groner', 'Briana Natalie', 'Bridget Lanigan', 'Brooke Sterneck', 'Caroline Harding', 'Catherine Levins', 'Corinne Sullivan', 'Courtney Morgan', 'Danya B', 'Dawn musil', 'Divya Agarwal', 'Ella Simmons',  'Genevieve Agar', 'Grettie Mason', 'Hannah Mills', 'Ibanca Anand', 'Jeannie blackwood', 'Julia Wang', 'Kate Connors', 'Kelly Ready', 'Kelsey Murphy', 'Kimmi Schonhorst', 'Kristen Thut', 'Leviyah Ashira Greilich', 'Liv Sisson', 'Liv Stromme', 'Lydia Ottaviano', 'Mady Jankowski', 'Mallory Michaelis', 'Martha Cosgrove', 'Mattie Coacher', 'Michelle Khalid', 'Paola Peraza', 'Perrin Brown', 'Rachel Smedley', 'Sally Lindsay', 'Sarena Martinez'];
-  var activity = ['coffee', 'brunch', 'lunch', 'dinner', 'drag show', 'museum', 'froyo', 'roller skating', 'actually watch a movie', 'ice cream', 'cook a meal', 'go on a walk', 'arcade', 'RISD Nature Lab', 'zoo', 'Muse Paintbar', 'bake something'];
-  
+function postMessageDisrupt() {
   var botResponse, options, body, botReq;
   
-  var index = Math.floor(Math.random()*gals.length);
-  var match = gals[index];
-  
-  var index_act = Math.floor(Math.random()*(activity.length));
-  var date = activity[index_act];
-  
-  //botResponse = cool() + ' @Guyrandy Jean-Gilles';
-  botResponse ='^ @' + match + ' ' + date + '?';
+  botResponse =' DISRUPT';
 
   options = {
     hostname: 'api.groupme.com',
